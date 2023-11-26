@@ -2,6 +2,17 @@ const button = document.querySelector(".botao")
 const input = document.querySelector(".caixa1")
 const listaTarefa = document.querySelector(".list-test")
 
+const validateInput = () => input.value.trim().length > 0;
+
+const handleAddTask = () => {
+    const inputIsvalid = validateInput();
+
+    if (!inputIsvalid) {
+        return input.classList.add("error")
+    }
+}
+
+
 let minhaListaDeItens = []
 
 function AdicionarNovaTarefa() {
@@ -63,7 +74,7 @@ recarregarTarefas()
 
 
 
-button.addEventListener('click', AdicionarNovaTarefa)
+button.addEventListener('click', AdicionarNovaTarefa,  handleAddTask  )
 
 
 
